@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,6 +25,11 @@ public class JoystickController : MonoBehaviour
             {
                 JoystickTouch.transform.position = touchPos;
                 demon.targetMove = targetVector;
+            }
+            else
+            {
+                JoystickTouch.transform.position = transform.position + targetVector.normalized * 100;
+                demon.targetMove = targetVector.normalized * 100;
             }
         }
         else
