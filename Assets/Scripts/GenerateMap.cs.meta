@@ -3,7 +3,12 @@ guid: 07fc370f42ba4b648b185e12d2a710a8
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - wall: {instanceID: 0}
+  - field: {instanceID: 0}
+  - pit: {instanceID: 0}
+  - demon: {instanceID: 0}
+  - soul: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -639,6 +639,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!58 &1503761373
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1503761367}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1 &1602051403
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,6 +702,8 @@ MonoBehaviour:
   field: {fileID: 4257891288970799069, guid: 3691677a7e83bd54dab434d27d2459f3, type: 3}
   pit: {fileID: 1835881460189253771, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
   demon: {fileID: 1503761367}
+  soul: {fileID: 3214449869210445644, guid: 70de0fc2591c1934783f88f22fd224ca, type: 3}
+  coord: 
 --- !u!1001 &4330747444151164464
 PrefabInstance:
   m_ObjectHideFlags: 0
