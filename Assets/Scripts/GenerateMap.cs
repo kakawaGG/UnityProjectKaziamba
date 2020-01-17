@@ -14,8 +14,8 @@ public class GenerateMap : MonoBehaviour
     public GameObject soul;
 
     // Размер считываемой карты (в инициализации MapSizeX и mapSizeY вводить вручную)
-    int mapSizeX = 22;
-    int mapSizeY = 22;
+    int mapSizeX = 24;
+    int mapSizeY = 24;
     int[,] map;
     public List<int> coord;
     int soul_count = 10;
@@ -80,7 +80,7 @@ public class GenerateMap : MonoBehaviour
         coord.Remove(d_p);
         int y = d_p % 12;
         int x = (d_p - y) / 12;
-        demon.transform.position = new Vector3(y,x, 0);
+        demon.transform.position = new Vector3(y, mapSizeX - x, 0);
 
         for (int i = 0; i < soul_count; i++)
         {
@@ -88,7 +88,7 @@ public class GenerateMap : MonoBehaviour
             coord.Remove(d_p);
             y = d_p % 12;
             x = (d_p - y) / 12;
-            Instantiate(soul, new Vector3(y, x, 0), Quaternion.identity);
+            Instantiate(soul, new Vector3(y, mapSizeX - x, 0), Quaternion.identity);
         }
         
     }
