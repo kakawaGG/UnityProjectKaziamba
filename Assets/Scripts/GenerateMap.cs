@@ -14,22 +14,23 @@ public class GenerateMap : MonoBehaviour
     public GameObject soul;
 
     // Размер считываемой карты (в инициализации MapSizeX и mapSizeY вводить вручную)
-    int mapSizeX = 12;
-    int mapSizeY = 12;
-    int[,] map = new int[12, 12];
+    int mapSizeX = 22;
+    int mapSizeY = 22;
+    int[,] map;
     public List<int> coord;
     int soul_count = 10;
     //List<GameObject> souls;
 
     void Start()
     {
+        map = new int[mapSizeX, mapSizeY];
         // Считывание карты с текстового файла
         using (StreamReader sr = new StreamReader("Maps.txt", System.Text.Encoding.Default))
         {
             for (int i = 0; i < mapSizeX; i++)
             {
                 var line = sr.ReadLine().Split(' ');
-                for (int j = 0; j < mapSizeY; j++)
+                for (int j = 0; j < line.Length; j++)
                     map[i, j] = int.Parse(line[j]);
             }
         }
@@ -83,7 +84,7 @@ public class GenerateMap : MonoBehaviour
 
         for (int i = 0; i < soul_count; i++)
         {
-            d_p = coord[new System.Random().Next(0, coord.Count)];
+            d_p = coord[new System.Random().Next(coord.Count)];
             coord.Remove(d_p);
             y = d_p % 12;
             x = (d_p - y) / 12;

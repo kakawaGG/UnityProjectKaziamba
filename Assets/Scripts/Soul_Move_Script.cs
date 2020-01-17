@@ -8,7 +8,16 @@ public class Soul_Move_Script : MonoBehaviour
     float speed = 0.4f;
     float cur_speed = 0;
     public List<GameObject> agn;
+
     Vector2 H = new Vector2(0, 0);
+    Vector2 LCM;
+    Vector2 A;
+    Vector2 Rs;
+    Vector2 C;
+    Vector2 S;
+    Vector2 Ra;
+    Vector2 E;
+
     GameObject Demon;
     bool demon_near = false;
 
@@ -16,7 +25,7 @@ public class Soul_Move_Script : MonoBehaviour
     float c = 0.105f;		// relative strength of attraction to the n nearest neighbours - 1.05
     float ps = 0.15f;		// relative strength of repulsion from the shepherd - 1
     float h = 0.05f;			// relative strength of proceeding in the previous direction - 0.5
-    float e = 0.02f;	
+    float e = 0.005f;	
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +36,7 @@ public class Soul_Move_Script : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 LCM = new Vector2(0, 0);
+        LCM = new Vector2(0, 0);
 
         int counter = 0;
         int l = agn.Count;
@@ -42,13 +51,12 @@ public class Soul_Move_Script : MonoBehaviour
             LCM = GetComponent<Rigidbody2D>().position;
         
         // Agent and Shepherd position
-        Vector2 A = GetComponent<Rigidbody2D>().position;
-        Vector2 Rs;
-        Vector2 C;
-        if (demon_near)
+        A = GetComponent<Rigidbody2D>().position;
+
+        if (demon_near && Demon != null)
         {
             //Distance between Agent and Shepherd
-            Vector2 S = Demon.GetComponent<Rigidbody2D>().position;
+            S = Demon.GetComponent<Rigidbody2D>().position;
             Rs = A - S;
             C = LCM - A;
             cur_speed = speed;
@@ -57,21 +65,23 @@ public class Soul_Move_Script : MonoBehaviour
         {
             Rs = Vector2.zero;
             C = Vector2.zero;
-            if (cur_speed > 0)
-                cur_speed -= 0.05f;
+            cur_speed -= 0.05f;
+            if (cur_speed <= 0)
+                cur_speed = 0;
+                
         }
 
         // Local repulsion of Agent from nearest neighbours
-        Vector2 Ra = Vector2.zero;
+        Ra = Vector2.zero;
         for (int i = 0; i < l; i++)
         {
             Ra += (GetComponent<Rigidbody2D>().position - agn[i].GetComponent<Rigidbody2D>().position).normalized;
         }
 
         //Error term
-        Vector2 E = new Vector2(100f * (Random.value - 0.5f), 100f * (Random.value - 0.5f));
+        E = new Vector2(10f * (Random.value - 0.5f), 10f * (Random.value - 0.5f));
         
-        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized + e * E.normalized;
+        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized ;
         transform.position = A + cur_speed * H.normalized + e * E.normalized; 
 
     }
