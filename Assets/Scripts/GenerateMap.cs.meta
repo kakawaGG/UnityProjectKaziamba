@@ -4,11 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - wall: {instanceID: 0}
-  - field: {instanceID: 0}
-  - pit: {instanceID: 0}
-  - demon: {instanceID: 0}
-  - soul: {instanceID: 0}
+  - wall: {fileID: 5026700995885808639, guid: 61f6d3cd72b0d0942a2aead47f5e930b, type: 3}
+  - field: {fileID: 4257891288970799069, guid: 3691677a7e83bd54dab434d27d2459f3, type: 3}
+  - pit: {fileID: 1835881460189253771, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
+  - demon: {fileID: 4697327823213441743, guid: 27a89942123f25c4e8991de8f84e5d81, type: 3}
+  - soul: {fileID: 3214449869210445644, guid: 70de0fc2591c1934783f88f22fd224ca, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -11,6 +11,10 @@ public class Soul_Move_Script : MonoBehaviour
     Vector2 H = new Vector2(0, 0);
     GameObject Demon;
 
+    int rs = 5;
+    int ra = 1;
+
+
     float pa = 0.2f;			// relative strength of repulsion from other agents - 2
     float c = 0.105f;		// relative strength of attraction to the n nearest neighbours - 1.05
     float ps = 0.15f;		// relative strength of repulsion from the shepherd - 1
@@ -28,26 +32,36 @@ public class Soul_Move_Script : MonoBehaviour
     {
         Vector2 LCM = new Vector2(0, 0);
 
+        // Agent and Shepherd position
+        Vector2 A = GetComponent<Rigidbody2D>().position;
+        Vector2 S = Demon.GetComponent<Rigidbody2D>().position;
+
+        //LCM
         int counter = 0;
         int l = agn.Count;
         for (int i = 0; i < l; i++)
         {
-            LCM += agn[i].GetComponent<Rigidbody2D>().position;
-            counter++;
+            if (agn[i].GetComponent<Rigidbody2D>().position != A)
+            {
+                if ((agn[i].GetComponent<Rigidbody2D>().position - A).magnitude < rs)
+                {
+                    LCM += agn[i].GetComponent<Rigidbody2D>().position;
+                    counter++;
+                }
+            }
         }
         if (counter != 0)
             LCM /= counter;
         else
             LCM = GetComponent<Rigidbody2D>().position;
         
-        // Agent and Shepherd position
-        Vector2 A = GetComponent<Rigidbody2D>().position;
+        
         Vector2 Rs;
         Vector2 C;
-        if (Demon != null)
+        //if (Demon != null)
+        if ((A - S).magnitude <= rs)
         {
             //Distance between Agent and Shepherd
-            Vector2 S = Demon.GetComponent<Rigidbody2D>().position;
             Rs = A - S;
             C = LCM - A;
             cur_speed = speed;
@@ -64,7 +78,15 @@ public class Soul_Move_Script : MonoBehaviour
         Vector2 Ra = Vector2.zero;
         for (int i = 0; i < l; i++)
         {
-            Ra += (GetComponent<Rigidbody2D>().position - agn[i].GetComponent<Rigidbody2D>().position).normalized;
+            Vector2 AgnPos = agn[i].GetComponent<Rigidbody2D>().position;
+            if (AgnPos != A)
+            {
+                if ((A - AgnPos).magnitude < ra)
+                {
+                    Ra += (A - AgnPos) / (A - AgnPos).magnitude;
+                }
+            }
+            //Ra += (GetComponent<Rigidbody2D>().position - agn[i].GetComponent<Rigidbody2D>().position).normalized;
         }
 
         //Error term
