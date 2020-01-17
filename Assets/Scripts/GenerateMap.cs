@@ -41,17 +41,17 @@ public class GenerateMap : MonoBehaviour
             {
                 if (map[i, j] == 1)
                 {
-                    Instantiate(wall, new Vector3(j, mapSizeX - i, 0), Quaternion.identity);
+                    Instantiate(wall, new Vector3(j, mapSizeX - i, 1), Quaternion.identity);
                 }                    
                 else if (map[i, j] == 0)
                 {
-                    Instantiate(field, new Vector3(j, mapSizeX - i, 0), Quaternion.identity);
+                    Instantiate(field, new Vector3(j, mapSizeX - i, 1), Quaternion.identity);
                     int u = i * 12 + j;
                     coord.Add(u);
                 }
                 else if (map[i, j] == 2)
                 {
-                    Instantiate(pit, new Vector3(j, mapSizeX - i, 0), Quaternion.identity);
+                    Instantiate(pit, new Vector3(j, mapSizeX - i, 1), Quaternion.identity);
                 }
                     
             }
@@ -79,7 +79,7 @@ public class GenerateMap : MonoBehaviour
         coord.Remove(d_p);
         int y = d_p % 12;
         int x = (d_p - y) / 12;
-        demon.transform.position = new Vector3(y,x, -1);
+        demon.transform.position = new Vector3(y,x, 0);
 
         for (int i = 0; i < soul_count; i++)
         {
@@ -87,7 +87,7 @@ public class GenerateMap : MonoBehaviour
             coord.Remove(d_p);
             y = d_p % 12;
             x = (d_p - y) / 12;
-            Instantiate(soul, new Vector3(y, x, -1), Quaternion.identity);
+            Instantiate(soul, new Vector3(y, x, 0), Quaternion.identity);
         }
         
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Soul_Move_Script : MonoBehaviour
 {
-    public float speed = 0.7f;
+    float speed = 0.4f;
     float cur_speed = 0;
     public List<GameObject> agn;
     Vector2 H = new Vector2(0, 0);
@@ -58,7 +58,7 @@ public class Soul_Move_Script : MonoBehaviour
             Rs = Vector2.zero;
             C = Vector2.zero;
             if (cur_speed > 0)
-                cur_speed = cur_speed - 0.1f;
+                cur_speed -= 0.05f;
         }
 
         // Local repulsion of Agent from nearest neighbours
@@ -69,20 +69,17 @@ public class Soul_Move_Script : MonoBehaviour
         }
 
         //Error term
-        Vector2 E = new Vector2(10f * (Random.value - 0.5f), 10f * (Random.value - 0.5f));
+        Vector2 E = new Vector2(100f * (Random.value - 0.5f), 100f * (Random.value - 0.5f));
         
         H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized + e * E.normalized;
-        transform.position = A + cur_speed * H.normalized; 
+        transform.position = A + cur_speed * H.normalized + e * E.normalized; 
 
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     { 
-        if (collision.gameObject.tag == "Soul")
-        {
-            agn.Add(collision.gameObject);
-        }
-        else if (collision.gameObject.tag == "Demon")
+
+        if (collision.gameObject.tag == "Demon")
         {
             Demon = collision.gameObject;
             demon_near = true;
@@ -91,7 +88,7 @@ public class Soul_Move_Script : MonoBehaviour
 
     }
 
-
+    
     private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Demon")
@@ -99,12 +96,23 @@ public class Soul_Move_Script : MonoBehaviour
             Demon = null;
             demon_near = false;
         }
-        else if (collider.gameObject.tag == "Soul")
+
+    }
+
+    private void OnCollisionEnter(Collision collider)
+    {
+        if (collider.gameObject.tag == "Soul")
         {
             agn.Remove(collider.gameObject);
         }
     }
 
-
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Soul")
+        {
+            agn.Add(collision.gameObject);
+        }
+    }
 }
 
