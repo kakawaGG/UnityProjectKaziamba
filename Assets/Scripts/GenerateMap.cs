@@ -60,7 +60,8 @@ public class GenerateMap : MonoBehaviour
         }
 
 
-        /*// Поиск первой свободной ячейки для генерации Демона
+        
+        // Поиск первой свободной ячейки для генерации Демона
         bool flag = false;
         for (int i = 0; i < mapSizeX - 1; i++)
         {
@@ -73,23 +74,29 @@ public class GenerateMap : MonoBehaviour
                 }
 
             if (flag) break;
-            
         }
-        */
+
+        for (int i = 0; i < soul_count; i++)
+        {
+            Instantiate(soul, new Vector3(UnityEngine.Random.Range(1, mapSizeY), UnityEngine.Random.Range(1, mapSizeX), 0), Quaternion.identity);
+        }
+
+        /*
         int d_p = coord[new System.Random().Next(0, coord.Count)];
         coord.Remove(d_p);
-        int y = d_p % 12;
-        int x = (d_p - y) / 12;
+        int y = (d_p + 1) % mapSizeY;
+        int x = (d_p - y) / mapSizeX;
         demon.transform.position = new Vector3(y,x, 0);
 
         for (int i = 0; i < soul_count; i++)
         {
             d_p = coord[new System.Random().Next(coord.Count)];
             coord.Remove(d_p);
-            y = d_p % 12;
-            x = (d_p - y) / 12;
+            y = d_p % mapSizeY;
+            x = (d_p - y) / mapSizeX;
             Instantiate(soul, new Vector3(y, x, 0), Quaternion.identity);
         }
-        
+        */
+
     }
 }

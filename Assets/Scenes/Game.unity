@@ -193,6 +193,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1018938492361069148, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.74402666
+      objectReference: {fileID: 0}
+    - target: {fileID: 1018938492361069148, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.5119467
+      objectReference: {fileID: 0}
     - target: {fileID: 4697327823213441743, guid: 27a89942123f25c4e8991de8f84e5d81,
         type: 3}
       propertyPath: m_Name
@@ -620,7 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ed4649c364fb74881ad9452296ccaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.07
+  speed: 0.14
   targetMove: {x: 0, y: 0, z: 0}
 --- !u!4 &1503761370 stripped
 Transform:
@@ -710,7 +720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wall: {fileID: 5026700995885808639, guid: 61f6d3cd72b0d0942a2aead47f5e930b, type: 3}
   field: {fileID: 4257891288970799069, guid: 3691677a7e83bd54dab434d27d2459f3, type: 3}
-  pit: {fileID: 1835881460189253771, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
+  pit: {fileID: 3344220909460281667, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
   demon: {fileID: 1503761367}
   soul: {fileID: 3214449869210445644, guid: 70de0fc2591c1934783f88f22fd224ca, type: 3}
   coord: 

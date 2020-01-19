@@ -28,8 +28,8 @@ public class JoystickController : MonoBehaviour
             }
             else
             {
-                JoystickTouch.transform.position = transform.position + targetVector.normalized * 100;
-                demon.targetMove = targetVector.normalized * 100;
+                JoystickTouch.transform.position = transform.position + targetVector.normalized * 50;
+                demon.targetMove = targetVector.normalized * 50;
             }
         }
         else
