@@ -310,7 +310,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1103182937
@@ -523,7 +523,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 7
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -573,7 +573,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -100}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1237582572
@@ -718,7 +718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07fc370f42ba4b648b185e12d2a710a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wall: {fileID: 5026700995885808639, guid: 61f6d3cd72b0d0942a2aead47f5e930b, type: 3}
+  wall: {fileID: 9200098810358757934, guid: 61f6d3cd72b0d0942a2aead47f5e930b, type: 3}
   field: {fileID: 4257891288970799069, guid: 3691677a7e83bd54dab434d27d2459f3, type: 3}
   pit: {fileID: 3344220909460281667, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
   demon: {fileID: 1503761367}

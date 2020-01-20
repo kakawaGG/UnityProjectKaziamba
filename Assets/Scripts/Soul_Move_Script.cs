@@ -22,8 +22,8 @@ public class Soul_Move_Script : MonoBehaviour
     GameObject Demon;
     bool demon_near = false;
 
-    float pa = 0.2f;			// relative strength of repulsion from other agents - 2
-    float c = 0.105f;		// relative strength of attraction to the n nearest neighbours - 1.05
+    float pa = 0f;			// relative strength of repulsion from other agents - 2
+    float c = 0.2f;		// relative strength of attraction to the n nearest neighbours - 1.05
     float ps = 0.15f;		// relative strength of repulsion from the shepherd - 1
     float h = 0.05f;			// relative strength of proceeding in the previous direction - 0.5
     float e = 0.001f;	
@@ -91,19 +91,19 @@ public class Soul_Move_Script : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     { 
 
-        if (collision.gameObject.tag == "Demon")
+        if (collider.gameObject.tag == "Demon")
         {
-            Demon = collision.gameObject;
+            Demon = collider.gameObject;
             demon_near = true; 
         }
 
-        if (collision.gameObject.tag == "Pit")
+        
+        if (collider.gameObject.tag == "Soul")
         {
-            Destroy(gameObject);
-            Main.Score += 1;
+            agn.Add(collider.gameObject);
         }
     }
 
@@ -115,23 +115,24 @@ public class Soul_Move_Script : MonoBehaviour
             Demon = null;
             demon_near = false;
         }
+        if (collider.gameObject.tag == "Soul")
+        {
+            agn.Remove(collider.gameObject);
+        }
 
     }
 
     private void OnCollisionEnter(Collision collider)
     {
-        if (collider.gameObject.tag == "Soul")
+        if (collider.gameObject.tag == "Pit")
         {
-            agn.Remove(collider.gameObject);
+            Destroy(gameObject);
+            Main.Score += 1;
         }
-    }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.tag == "Soul")
-        {
-            agn.Add(collision.gameObject);
-        }
+        //private void OnCollisionExit(Collision collider)
+        //{
+        //}
     }
 }
 
