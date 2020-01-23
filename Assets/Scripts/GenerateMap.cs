@@ -79,12 +79,12 @@ public class GenerateMap : MonoBehaviour
         for (int i = 0; i < soul_count; i++)
         {
             int spawnX = UnityEngine.Random.Range(1, mapSizeX), spawnY = UnityEngine.Random.Range(1, mapSizeY);
-            while (map[spawnY, spawnX] != 0)
+            while (map[spawnX, spawnY] != 0)
             {
                 spawnX = UnityEngine.Random.Range(1, mapSizeX);
                 spawnY = UnityEngine.Random.Range(1, mapSizeY);
             }
-            Instantiate(soul, new Vector3(spawnX, spawnY, 0), Quaternion.identity);
+            Instantiate(soul, new Vector3(spawnY, mapSizeX - spawnX, 0), Quaternion.identity);
         }
 
         /*
