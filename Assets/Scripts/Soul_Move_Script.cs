@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Soul_Move_Script : MonoBehaviour
 {
-    float speed = 0.2f;
+    float speed = 20f;
     float cur_speed = 0;
     public List<GameObject> agn;
-    //Rigidbody2D body;
+    Rigidbody2D body;
 
     Vector2 H = new Vector2(0, 0);
     Vector2 LCM;
@@ -26,12 +26,12 @@ public class Soul_Move_Script : MonoBehaviour
     float c = 0.2f;		// relative strength of attraction to the n nearest neighbours - 1.05
     float ps = 0.15f;		// relative strength of repulsion from the shepherd - 1
     float h = 0.05f;			// relative strength of proceeding in the previous direction - 0.5
-    float e = 0.001f;	
+    float e = 0.005f;	
 
     // Start is called before the first frame update
     void Start()
     {
-        //body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody2D>();
         //transform.position = new Vector2(6f * (Random.value - 0.5f), 6f * (Random.value - 0.5f));        
     }
 
@@ -83,11 +83,11 @@ public class Soul_Move_Script : MonoBehaviour
         //Error term
         E = new Vector2(10f * (Random.value - 0.5f), 10f * (Random.value - 0.5f));
         
-        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized ;
+        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized + E * e;
 
         //Vector3 finalMovement = A + cur_speed * H.normalized + e * E.normalized;
-        transform.position = A + cur_speed * H.normalized + e * E.normalized;
-        //body.AddForce((finalMovement - transform.position).normalized * speed);
+        //transform.position = A + cur_speed * H.normalized + e * E.normalized;
+        body.velocity = H * speed;
 
     }
 

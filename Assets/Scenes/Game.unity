@@ -193,13 +193,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1018938492361069148, guid: 27a89942123f25c4e8991de8f84e5d81,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Offset.y
       value: -0.74402666
       objectReference: {fileID: 0}
-    - target: {fileID: 1018938492361069148, guid: 27a89942123f25c4e8991de8f84e5d81,
-        type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Size.y
       value: 1.5119467
       objectReference: {fileID: 0}
@@ -208,15 +206,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: Demon
       objectReference: {fileID: 0}
+    - target: {fileID: 6083397106752065321, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083397106752065321, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083397106752065321, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6083397106752065321, guid: 27a89942123f25c4e8991de8f84e5d81,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9036324441899082626, guid: 27a89942123f25c4e8991de8f84e5d81,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -100
+      value: -99.984
       objectReference: {fileID: 0}
     - target: {fileID: 9036324441899082626, guid: 27a89942123f25c4e8991de8f84e5d81,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -100
+      value: -100.024
       objectReference: {fileID: 0}
     - target: {fileID: 9036324441899082626, guid: 27a89942123f25c4e8991de8f84e5d81,
         type: 3}
@@ -630,7 +648,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52ed4649c364fb74881ad9452296ccaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.14
+  speed: 0.1
   targetMove: {x: 0, y: 0, z: 0}
 --- !u!4 &1503761370 stripped
 Transform:
