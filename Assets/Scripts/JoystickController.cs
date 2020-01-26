@@ -21,7 +21,7 @@ public class JoystickController : MonoBehaviour
             Vector3 touchPos = Input.mousePosition;
             targetVector = touchPos - transform.position;
 
-            if (targetVector.magnitude < 100)
+            if (targetVector.magnitude < 50)
             {
                 JoystickTouch.transform.position = touchPos;
                 demon.targetMove = targetVector;
