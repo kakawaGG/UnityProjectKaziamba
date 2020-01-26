@@ -4,9 +4,9 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Pit
-  - Soul
-  - Demon
+  - Map
+  - Ras
+  - Enemy
   layers:
   - Default
   - TransparentFX
