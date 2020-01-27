@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Soul_Move_Script : MonoBehaviour
 {
-    float speed = 0.4f;
+    float speed = 0.15f;
     float cur_speed = 0;
     public List<GameObject> agn;
 
@@ -21,11 +21,11 @@ public class Soul_Move_Script : MonoBehaviour
     GameObject Demon;
     bool demon_near = false;
 
-    float pa = 0.2f;			// relative strength of repulsion from other agents - 2
-    float c = 0.105f;		// relative strength of attraction to the n nearest neighbours - 1.05
-    float ps = 0.15f;		// relative strength of repulsion from the shepherd - 1
-    float h = 0.05f;			// relative strength of proceeding in the previous direction - 0.5
-    float e = 0.005f;	
+    float pa = 0.4f;			// relative strength of repulsion from other agents - 2
+    float c = 0.4f;		// relative strength of attraction to the n nearest neighbours - 1.05
+    float ps = 0.2f;		// relative strength of repulsion from the shepherd - 1
+    float h = 0.04f;			// relative strength of proceeding in the previous direction - 0.5
+    float e = 0.01f;	
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +65,7 @@ public class Soul_Move_Script : MonoBehaviour
         {
             Rs = Vector2.zero;
             C = Vector2.zero;
-            cur_speed -= 0.05f;
+            cur_speed -= 0.01f;
             if (cur_speed <= 0)
                 cur_speed = 0;
                 
@@ -81,7 +81,7 @@ public class Soul_Move_Script : MonoBehaviour
         //Error term
         E = new Vector2(10f * (Random.value - 0.5f), 10f * (Random.value - 0.5f));
         
-        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized ;
+        H = h * H.normalized + c * C.normalized + pa * Ra.normalized + ps * Rs.normalized + e * E.normalized;
         transform.position = A + cur_speed * H.normalized + e * E.normalized; 
 
     }
