@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: -5721745959809028958}
   - component: {fileID: 453947281479931303}
   - component: {fileID: -6350336078750556334}
-  - component: {fileID: -3751966775650287320}
   - component: {fileID: 7177435535461074308}
+  - component: {fileID: -3751966775650287320}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Soul
@@ -49,10 +49,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pa: 0
   c: 0.2
-  ps: 0.4
-  h: 0.05
-  e: 0.005
-  speed: 25
+  ps: 0.35
+  h: 0
+  e: 0
+  speed: 20
   agn: []
 --- !u!212 &453947281479931303
 SpriteRenderer:
@@ -119,6 +119,22 @@ CircleCollider2D:
   m_Offset: {x: 0.1, y: -0.4}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!58 &7177435535461074308
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214449869210445644}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3
 --- !u!50 &-3751966775650287320
 Rigidbody2D:
   serializedVersion: 4
@@ -140,19 +156,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &7177435535461074308
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3214449869210445644}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4

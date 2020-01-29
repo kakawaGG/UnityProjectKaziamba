@@ -13,6 +13,7 @@ public class Soul_Move_Script : MonoBehaviour
 	public float speed;
 	float cur_speed = 0;
 	public List<GameObject> agn;
+	float init_e;
 
 	Vector2 H = new Vector2(0, 0);
 	Vector2 LCM;
@@ -30,6 +31,7 @@ public class Soul_Move_Script : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		init_e = e;
 		body = GetComponent<Rigidbody2D>();
 		//transform.position = new Vector2(6f * (Random.value - 0.5f), 6f * (Random.value - 0.5f));        
 	}
@@ -90,16 +92,18 @@ public class Soul_Move_Script : MonoBehaviour
 
 	}
 
-	private void OnTriggerEnter2D(Collider2D collider)
-	{ 
+	private void OnTriggerStay2D(Collider2D collider)
+	{
 
 		if (collider.gameObject.tag == "Demon")
 		{
 			Demon = collider.gameObject;
-			demon_near = true; 
+			demon_near = true;
+			e = 0;
 		}
-
-		
+	}
+	private void OnTriggerEnter2D(Collider2D collider)
+	{ 
 		if (collider.gameObject.tag == "Soul")
 		{
 			agn.Add(collider.gameObject);
@@ -113,6 +117,7 @@ public class Soul_Move_Script : MonoBehaviour
 		{
 			Demon = null;
 			demon_near = false;
+			e = init_e;
 		}
 		if (collider.gameObject.tag == "Soul")
 		{
@@ -121,7 +126,7 @@ public class Soul_Move_Script : MonoBehaviour
 
 	}
 
-	private void OnCollisionEnter(Collision collider)
+	private void OnCollisionEnter2D(Collision2D collider)
 	{
 		if (collider.gameObject.tag == "Pit")
 		{
