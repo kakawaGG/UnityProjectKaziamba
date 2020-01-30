@@ -8,6 +8,9 @@ TagManager:
   - Ras
   - Enemy
   - Pit
+  - Demon
+  - Soul
+  - Jam
   layers:
   - Default
   - TransparentFX

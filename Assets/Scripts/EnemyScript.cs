@@ -8,6 +8,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject Enemy;
     private GameObject Enemy1;
     private GameObject Enemy2;
+    public GameObject Soul;
     
 
     private Vector3Int coord1 = new Vector3Int(-1, -1, 0);
@@ -36,6 +37,12 @@ public class EnemyScript : MonoBehaviour
 
         Enemy1 = Instantiate(Enemy, map.CellToWorld(map.LocalToCell(coord1)), Quaternion.identity);
         Enemy2 = Instantiate(Enemy, map.CellToWorld(map.LocalToCell(coord2)), Quaternion.identity);
+
+        Instantiate(Soul, map.CellToWorld(map.LocalToCell(new Vector3(-0.5f, -1.75f, 0))), Quaternion.identity);
+        Instantiate(Soul, map.CellToWorld(map.LocalToCell(new Vector3(0.5f, -0.75f, 0))), Quaternion.identity);
+        Instantiate(Soul, map.CellToWorld(map.LocalToCell(new Vector3(0, 0.5f, 0))), Quaternion.identity);
+
+
 
         Enemy1.GetComponent<Rigidbody2D>().velocity = vel*speed;
         Enemy2.GetComponent<Rigidbody2D>().velocity = vel*speed;
@@ -102,11 +109,4 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Pit")
-        {
-            Debug.Log("Pit");
-        }
-    }
 }
