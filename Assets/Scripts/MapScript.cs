@@ -34,7 +34,7 @@ public class MapScript : MonoBehaviour
         {
             
             fromPosition = Player.transform.position;
-            Debug.Log(map.LocalToCell( fromPosition));
+            //Debug.Log(map.LocalToCell( fromPosition));
             Vector3Int c = CoordCamera(Input.mousePosition);
             
             Vector3 n = (map.CellToWorld(c) - fromPosition).normalized;
