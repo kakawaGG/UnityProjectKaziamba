@@ -32,9 +32,9 @@ public class ViewScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             if (collision.gameObject.GetComponent<PlayerScript>().Seek() == false)
-                Debug.Log("Player eat");
+                Debug.Log("Player dead");
             else
-                Debug.Log("Player not eat");
+                Debug.Log("Player not dead");
         }
     }
 
