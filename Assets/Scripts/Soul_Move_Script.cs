@@ -14,6 +14,7 @@ public class Soul_Move_Script : MonoBehaviour
 	float cur_speed = 0;
 	public List<GameObject> agn;
 	float init_e;
+	
 
 	Vector2 H = new Vector2(0, 0);
 	Vector2 LCM;
@@ -88,7 +89,10 @@ public class Soul_Move_Script : MonoBehaviour
 
 		//Vector3 finalMovement = A + cur_speed * H.normalized + e * E.normalized;
 		//transform.position = A + cur_speed * H.normalized + e * E.normalized;
+
 		body.velocity = H * speed;
+
+		//body.AddForce(H * speed);
 
 	}
 
@@ -104,7 +108,7 @@ public class Soul_Move_Script : MonoBehaviour
 	}
 	private void OnTriggerEnter2D(Collider2D collider)
 	{ 
-		if (collider.gameObject.tag == "Soul")
+		if (collider.gameObject.tag == "Soul" && collider.isTrigger)
 		{
 			agn.Add(collider.gameObject);
 		}
@@ -118,21 +122,31 @@ public class Soul_Move_Script : MonoBehaviour
 			Demon = null;
 			demon_near = false;
 			e = init_e;
+
+			//body.velocity = new Vector2(0,0);
 		}
-		if (collider.gameObject.tag == "Soul")
+		if (collider.gameObject.tag == "Soul" && collider.isTrigger)
 		{
 			agn.Remove(collider.gameObject);
 		}
 
 	}
-
+	
 	private void OnCollisionEnter2D(Collision2D collider)
 	{
+		/*
 		if (collider.gameObject.tag == "Pit")
 		{
 			Destroy(gameObject);
 			Main.Score += 1;
 		}
+		*/
+
+		if (collider.gameObject.tag == "Killer")
+		{
+			Destroy(gameObject);
+		}
+		
 	}
 }
 

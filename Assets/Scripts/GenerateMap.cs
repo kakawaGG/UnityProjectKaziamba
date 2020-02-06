@@ -12,6 +12,7 @@ public class GenerateMap : MonoBehaviour
     public GameObject pit;
     public GameObject demon;
     public GameObject soul;
+    public GameObject killer;
 
     // Размер считываемой карты (в инициализации MapSizeX и mapSizeY вводить вручную)
     int mapSizeX = 22;
@@ -52,9 +53,12 @@ public class GenerateMap : MonoBehaviour
                 }
                 else if (map[i, j] == 2)
                 {
+                    Instantiate(killer, new Vector3(j, mapSizeX - i, 1), Quaternion.identity);
+                }
+                else if (map[i, j] == 3)
+                {
                     Instantiate(pit, new Vector3(j, mapSizeX - i, 1), Quaternion.identity);
                 }
-                    
             }
                 
         }

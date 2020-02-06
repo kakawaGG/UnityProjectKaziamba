@@ -51,8 +51,8 @@ MonoBehaviour:
   c: 0.2
   ps: 0.35
   h: 0
-  e: 0
-  speed: 20
+  e: 0.005
+  speed: 13
   agn: []
 --- !u!212 &453947281479931303
 SpriteRenderer:
@@ -112,7 +112,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 3214449869210445644}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 7e5b68c94a72c264bb964da0139ef079, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -147,8 +147,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 0.01
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 7e5b68c94a72c264bb964da0139ef079, type: 2}

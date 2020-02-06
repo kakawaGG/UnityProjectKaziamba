@@ -26,9 +26,10 @@ CELL = 20
 BOARD_SIZE = 22
 WINDOW_SIZE = BOARD_SIZE * CELL
 
-NAVY = (0, 0, 128)
-RED = (255, 0, 0)
-YELLOW = (255,255,0)
+WALL = (0, 0, 128)
+KILLER = (255, 0, 0)
+FIELD = (255,255,0)
+PIT = (0, 128, 0)
 
 board = []
 for i in range(BOARD_SIZE):
@@ -65,7 +66,7 @@ while True:
 		if pygame.mouse.get_pressed()[0]:
 			if event.type == MOUSEBUTTONDOWN:
 				x, y = transform(pygame.mouse.get_pos())
-				if board[y][x] < 2: 
+				if board[y][x] < 3: 
 					board[y][x] += 1
 				else:
 					board[y][x] = 0
@@ -73,11 +74,13 @@ while True:
 	for y in range(BOARD_SIZE):
 		for x in range(BOARD_SIZE):
 			if board[y][x] == 0:
-				color = YELLOW
+				color = FIELD
 			elif board[y][x] == 1:
-				color = NAVY
+				color = WALL
+			elif board[y][x] == 2:
+				color = KILLER
 			else:
-				color = RED
+				color = PIT
 			pygame.draw.rect(windowSurface, color, pygame.Rect(x * CELL, y * CELL, CELL, CELL))
 
 	pygame.display.update()

@@ -9,6 +9,8 @@ MonoImporter:
   - pit: {fileID: 3344220909460281667, guid: 4ff9996b947525b4881409bb423936ba, type: 3}
   - demon: {fileID: 4697327823213441743, guid: 27a89942123f25c4e8991de8f84e5d81, type: 3}
   - soul: {fileID: 3214449869210445644, guid: 70de0fc2591c1934783f88f22fd224ca, type: 3}
+  - killer: {fileID: 1760603752593787435, guid: 68bf835f86d9dd3469457ea8c61da77d,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
