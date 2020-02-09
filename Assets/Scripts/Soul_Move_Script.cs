@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Soul_Move_Script : MonoBehaviour
 {
-	public float pa;            // relative strength of repulsion from other agents - 2
+    private SpriteRenderer rend;
+
+    public float pa;            // relative strength of repulsion from other agents - 2
 	public float c;     // relative strength of attraction to the n nearest neighbours - 1.05
 	public float ps;        // relative strength of repulsion from the shepherd - 1
 	public float h;         // relative strength of proceeding in the previous direction - 0.5
@@ -32,7 +34,9 @@ public class Soul_Move_Script : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		init_e = e;
+        rend = GetComponent<SpriteRenderer>();
+
+        init_e = e;
 		body = GetComponent<Rigidbody2D>();
 		//transform.position = new Vector2(6f * (Random.value - 0.5f), 6f * (Random.value - 0.5f));        
 	}
@@ -40,8 +44,10 @@ public class Soul_Move_Script : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		//Local center of mass position
-		LCM = new Vector2(0, 0);
+        rend.sortingOrder = 30000 +  (int)(transform.position.y * -1000);
+
+        //Local center of mass position
+        LCM = new Vector2(0, 0);
 		int counter = 0;
 		int l = agn.Count;
 		for (int i = 0; i < l; i++)

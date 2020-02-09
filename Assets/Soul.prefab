@@ -52,7 +52,7 @@ MonoBehaviour:
   ps: 0.35
   h: 0
   e: 0.005
-  speed: 13
+  speed: 0
   agn: []
 --- !u!212 &453947281479931303
 SpriteRenderer:
