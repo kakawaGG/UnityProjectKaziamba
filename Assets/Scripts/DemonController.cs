@@ -19,6 +19,6 @@ public class DemonController : MonoBehaviour
     void Update()
     {
         rend.sortingOrder = 30000 + (int)(transform.position.y * -1000);
-        body.velocity = new Vector2(targetMove.x * speed, targetMove.y * speed);
+        body.velocity = new Vector2(targetMove.x * speed, targetMove.y * speed * 0.8f);
     }
 }
