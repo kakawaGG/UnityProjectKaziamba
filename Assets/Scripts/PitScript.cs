@@ -18,7 +18,7 @@ public class PitScript : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Time.time - lastSoul > latency)
+		if (Time.time - lastSoul > latency && currentScore > 0)
 		{
 			Main.Score += currentScore * currentScore;
 			currentScore = 0;

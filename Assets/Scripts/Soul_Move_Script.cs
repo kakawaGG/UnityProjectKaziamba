@@ -13,7 +13,6 @@ public class Soul_Move_Script : MonoBehaviour
 	public float h;         // relative strength of proceeding in the previous direction - 0.5
 	public float e;
 	public float speed;
-	float cur_speed = 0;
 	public List<GameObject> agn;
 	float init_e;
 	
@@ -42,7 +41,7 @@ public class Soul_Move_Script : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
         rend.sortingOrder = 30000 +  (int)(transform.position.y * -1000);
 
@@ -69,16 +68,11 @@ public class Soul_Move_Script : MonoBehaviour
 			S = Demon.GetComponent<Rigidbody2D>().position;
 			Rs = A - S;
 			C = LCM - A;
-			cur_speed = speed;
 		}
 		else
 		{
 			Rs = Vector2.zero;
-			C = Vector2.zero;
-			cur_speed -= 0.05f;
-			if (cur_speed <= 0)
-				cur_speed = 0;
-				
+			C = Vector2.zero;				
 		}
 
 		// Local repulsion of Agent from nearest neighbours
@@ -96,9 +90,9 @@ public class Soul_Move_Script : MonoBehaviour
 		//Vector3 finalMovement = A + cur_speed * H.normalized + e * E.normalized;
 		//transform.position = A + cur_speed * H.normalized + e * E.normalized;
 
-		body.velocity = H * speed;
+		//body.velocity = H * speed;
 
-		//body.AddForce(H * speed);
+		body.AddForce(H * speed);
 
 	}
 

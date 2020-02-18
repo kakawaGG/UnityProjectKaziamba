@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6123194034593007574}
   - component: {fileID: -5721745959809028958}
+  - component: {fileID: -3751966775650287320}
   - component: {fileID: 453947281479931303}
   - component: {fileID: -6350336078750556334}
   - component: {fileID: 7177435535461074308}
-  - component: {fileID: -3751966775650287320}
   m_Layer: 0
   m_Name: Soul
   m_TagString: Soul
@@ -52,8 +52,29 @@ MonoBehaviour:
   ps: 0.35
   h: 0
   e: 0.005
-  speed: 0
+  speed: 1
   agn: []
+--- !u!50 &-3751966775650287320
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3214449869210445644}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.015
+  m_LinearDrag: 3
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 6200000, guid: 7e5b68c94a72c264bb964da0139ef079, type: 2}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!212 &453947281479931303
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -134,25 +155,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3
---- !u!50 &-3751966775650287320
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3214449869210445644}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.01
-  m_LinearDrag: 1
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 6200000, guid: 7e5b68c94a72c264bb964da0139ef079, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Radius: 3.5
